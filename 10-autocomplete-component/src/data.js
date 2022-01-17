@@ -1,0 +1,16 @@
+export default [
+  'Apples',
+  'Bananas',
+  'Oranges',
+  'Kiwis',
+  'Mangos',
+  'Pearls',
+  'Berries',
+  'Strawberries',
+  'Pineapples',
+  'Peaches',
+  'Grapes',
+  'Pulms',
+  'Coconuts',
+  'Lemons',
+];

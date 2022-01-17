@@ -34,8 +34,8 @@ input:focus {
 
 .suggestions {
   list-style: none;
-  /* height: auto;
-  height: 120px; */
+  height: auto;
+  /* height: 120px; */
   margin: 0;
   padding: 0;
   border-top: 1px solid #d4d4d4;

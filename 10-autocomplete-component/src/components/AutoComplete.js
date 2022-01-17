@@ -36,14 +36,6 @@ const AutoComplete = ({ options = ['Oranges', 'Bananas', 'Apples'] }) => {
     return () => document.removeEventListener('click', handleOutsideClick);
   }, []);
 
-  useEffect(() => {
-    // if (!ulRef) ulRef.current.style.height = `0px`;
-    if (!ulRef) ulRef.current.style.height = `${16 * length}px`;
-    console.log(ulRef);
-
-    console.log(length);
-  }, [showSuggestion, length]);
-
   return (
     <div className="autocomplete" ref={autoCompleteRef}>
       <input

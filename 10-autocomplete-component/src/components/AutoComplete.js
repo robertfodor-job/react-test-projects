@@ -5,7 +5,6 @@ const AutoComplete = ({ options = ['Oranges', 'Bananas', 'Apples'] }) => {
   const [showSuggestion, setShowSuggestions] = useState(false);
 
   const autoCompleteRef = useRef();
-  const liRef = useRef();
   const ulRef = useRef();
 
   const suggestions = options.filter(option =>
@@ -22,7 +21,6 @@ const AutoComplete = ({ options = ['Oranges', 'Bananas', 'Apples'] }) => {
   const handleSuggestionClick = suggestion => {
     setValue(suggestion);
     setShowSuggestions(false);
-    console.log(liRef);
   };
 
   useEffect(() => {
@@ -39,23 +37,12 @@ const AutoComplete = ({ options = ['Oranges', 'Bananas', 'Apples'] }) => {
   }, []);
 
   useEffect(() => {
-    if (!ulRef) ulRef.current.style.height = `0px`;
-    if (ulRef === 0) ulRef.current.style.height = `${16 * length}px`;
+    // if (!ulRef) ulRef.current.style.height = `0px`;
+    if (!ulRef) ulRef.current.style.height = `${16 * length}px`;
     console.log(ulRef);
 
     console.log(length);
   }, [showSuggestion, length]);
-
-  // useEffect(() => {
-  //   console.log(liRef);
-  // }, [liRef]);
-
-  // useEffect(() => {
-  //   const linksHeight = liRef.current.getBoundingClientRect().height;
-  //   if (linksHeight) {
-  //     ulRef.current.style.height = `${linksHeight}px`;
-  //   } else ulRef.current.style.height = 0;
-  // }, [showSuggestion]);
 
   return (
     <div className="autocomplete" ref={autoCompleteRef}>
@@ -70,12 +57,7 @@ const AutoComplete = ({ options = ['Oranges', 'Bananas', 'Apples'] }) => {
         <ul className="suggestions" ref={ulRef}>
           {suggestions.map(sug => {
             return (
-              <li
-                key={sug}
-                onClick={() => handleSuggestionClick(sug)}
-                onLoad={e => console.log(e)}
-                ref={liRef}
-              >
+              <li key={sug} onClick={() => handleSuggestionClick(sug)}>
                 {sug}
               </li>
             );

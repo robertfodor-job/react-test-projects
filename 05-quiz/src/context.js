@@ -85,8 +85,6 @@ const AppProvider = ({ children }) => {
     const value = e.target.value;
 
     setQuiz({ ...quiz, [name]: value });
-    console.log(quiz);
-    console.log(name, value);
   };
 
   const handleSubmit = e => {

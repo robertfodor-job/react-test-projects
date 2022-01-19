@@ -28,7 +28,6 @@ function App() {
 
   let answers = [...incorrect_answers];
   const tempIndex = Math.floor(Math.random() * 4);
-  console.log(tempIndex);
 
   if (tempIndex === 3) {
     answers.push(correct_answer);

@@ -56,11 +56,10 @@ const reducer = (state, action) => {
       return { ...state, total, amount };
 
     default:
-      console.log('NO CASE FOUND');
-      break;
+      throw new Error('NO CASE FOUND');
   }
 
-  return state;
+  // return state;
 };
 
 export default reducer;

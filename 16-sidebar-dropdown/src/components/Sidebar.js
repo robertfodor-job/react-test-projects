@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { data } from './data';
 import SubMenu from './SubMenu';
+import { IconContext } from 'react-icons/lib';
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(false);
@@ -15,21 +16,23 @@ const Sidebar = () => {
 
   return (
     <>
-      <Nav>
-        <NavIcon to="#">
-          <FaBars onClick={handleChangeSidebar} />
-        </NavIcon>
-      </Nav>
-      <SidebarNav sidebar={sidebar}>
-        <SidebarWrap>
+      <IconContext.Provider value={{ color: '#632ce4' }}>
+        <Nav>
           <NavIcon to="#">
-            <AiOutlineClose onClick={handleChangeSidebar} />
+            <FaBars onClick={handleChangeSidebar} />
           </NavIcon>
-          {data.map((item, index) => {
-            return <SubMenu item={item} key={index} />;
-          })}
-        </SidebarWrap>
-      </SidebarNav>
+        </Nav>
+        <SidebarNav sidebar={sidebar}>
+          <SidebarWrap>
+            <NavIcon to="#">
+              <AiOutlineClose onClick={handleChangeSidebar} />
+            </NavIcon>
+            {data.map((item, index) => {
+              return <SubMenu item={item} key={index} />;
+            })}
+          </SidebarWrap>
+        </SidebarNav>
+      </IconContext.Provider>
     </>
   );
 };
